@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 로그
+*.log
+pnpm-debug.log
+
+# 의존성 (절대 복사 금지)
+**/node_modules
+
+# 빌드 결과물 (Docker 안에서 새로 만들 것)
+**/dist
+**/.next
+**/out
+
+# DB 데이터 (절대 복사 금지)
+postgres-data/
+
+# 비밀 파일
+**/.env
+**/.env.*
+!.env.example
