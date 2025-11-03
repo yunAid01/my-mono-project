@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "pnpm -r run dev",
-    "build": "pnpm -r run build"
+    "build": "pnpm -r run build",
+    "build:validation": "pnpm --filter @repo/validation run build",
+    "build:types": "pnpm --filter @repo/types run build",
+    "build:db": "pnpm --filter @repo/db run build"
   },
   "keywords": [],
   "author": "",

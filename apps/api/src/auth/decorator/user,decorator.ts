@@ -1,0 +1,12 @@
+// src/user/decorator/user.decorator.ts
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+
+// createParamDecorator: 우리만의 커스텀 데코레이터를 만들 수 있게 해주는 함수
+// ExecutionContext로부터 http 요청(request) 객체를 꺼냅니다.
+// request 객체 안에 있는 user 정보를 반환합니다. (AuthGuard가 넣어준 값)
+export const User = createParamDecorator(
+  (_data: unknown, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.user;
+  },
+);

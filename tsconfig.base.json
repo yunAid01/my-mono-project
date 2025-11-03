@@ -11,9 +11,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@repo/types/*": ["packages/types/src/*"],
-      "@repo/validation/*": ["packages/validation/src/*"],
-      "@repo/db/*": ["packages/db/src/*"]
+      "@repo/types": ["packages/types/dist/index"],
+      "@repo/validation": ["packages/validation/dist/index"],
+      "@repo/db": ["packages/db/dist/index"]
     }
   }
 }

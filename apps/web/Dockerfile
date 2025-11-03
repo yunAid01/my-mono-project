@@ -23,7 +23,8 @@ WORKDIR /usr/src/app
 RUN pnpm --filter @repo/types run build
 RUN pnpm --filter @repo/validation run build
 
-# 6. web 앱 빌드
+# 6. web 앱 빌드 (Docker 환경임을 명시)
+ENV DOCKER_BUILD=true
 RUN pnpm --filter @app/web run build
 
 # 6. 프로덕션 스테이지

@@ -7,7 +7,7 @@ import {
   LoginUserDtoType,
   LoginResponseType,
   CreateUserResponseType,
-} from 'packages/validation';
+} from '@repo/validation';
 
 //service
 import { JwtService } from '@nestjs/jwt';
@@ -20,6 +20,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+  // ------------------------------------------------------------------------
   async createUser(
     createUserData: CreateUserDtoType,
   ): Promise<CreateUserResponseType> {
@@ -44,6 +45,7 @@ export class AuthService {
     };
   }
 
+  // ------------------------------------------------------------------------
   async loginUser(loginUserData: LoginUserDtoType): Promise<LoginResponseType> {
     const user = await this.prisma.user.findUnique({
       where: { email: loginUserData.email },
