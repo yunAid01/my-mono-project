@@ -63,6 +63,7 @@ model Post {
 
   comments    Comment[]
   votes       Vote[]
+  voteCount   Int      @default(0)
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -82,12 +83,13 @@ model Comment {
   replies   Comment[] @relation("Replies")
   
   vote      Vote[]
+  voteCount Int      @default(0)
 }
 
 
 enum VoteType {
   Up
-  down
+  Down
 }
 model Vote {
   id Int @id @default(autoincrement())

@@ -14,15 +14,15 @@ import {
   CreateSubradditResponseDto,
 } from './dto/create-subraddit.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { User } from '../auth/decorator/user,decorator';
+import { User } from '../auth/decorator/user,decorator'; // decorator
 import type { AuthenticatedUser } from '@repo/types';
 
 @Controller('subraddit')
 export class SubradditController {
   constructor(private readonly subradditService: SubradditService) {}
 
-  @Post()
   @UseGuards(AuthGuard('jwt'))
+  @Post()
   createSubraddit(
     @User() user: AuthenticatedUser,
     @Body() createSubradditDto: CreateSubradditDto,

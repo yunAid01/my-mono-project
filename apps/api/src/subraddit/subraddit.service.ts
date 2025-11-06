@@ -23,6 +23,7 @@ export class SubradditService {
       include: {
         creator: true,
         subscribes: true,
+        posts: true,
       },
     });
     return subraddits;

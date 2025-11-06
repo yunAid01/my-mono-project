@@ -1,12 +1,12 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 /** create user request zod schema */
 export const CreateUserSchema = z.object({
-  email: z.email({ message: "유효한 이메일을 입력해주세요" }),
-  nickname: z.string().min(3, { message: "닉네임은 3글자 이상이어야 합니다." }),
+  email: z.email({ message: '유효한 이메일을 입력해주세요' }),
+  nickname: z.string().min(3, { message: '닉네임은 3글자 이상이어야 합니다.' }),
   password: z
     .string()
-    .min(8, { message: "비밀번호는 6글자 이상이어야 합니다." }),
+    .min(8, { message: '비밀번호는 6글자 이상이어야 합니다.' }),
 });
 export type CreateUserDtoType = z.infer<typeof CreateUserSchema>;
 
@@ -15,7 +15,7 @@ export const LoginUserSchema = z.object({
   email: z.email(),
   password: z
     .string()
-    .min(8, { message: "비밀번호는 6글자 이상이어야 합니다." }),
+    .min(8, { message: '비밀번호는 6글자 이상이어야 합니다.' }),
 });
 export type LoginUserDtoType = z.infer<typeof LoginUserSchema>;
 
@@ -24,7 +24,9 @@ export const UserResponseSchema = z.object({
   id: z.number(),
   email: z.email(),
   nickname: z.string().min(3),
-  createdAt: z.iso.datetime(),
+  createdAt: z.string().refine((date) => !isNaN(Date.parse(date)), {
+    message: '유효한 날짜 형식이 아닙니다.',
+  }),
   bio: z.string().nullish(), // string | undefined | null
 });
 export type CreateUserResponseType = z.infer<typeof UserResponseSchema>;

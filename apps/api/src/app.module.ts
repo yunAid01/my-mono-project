@@ -7,17 +7,19 @@ import { PostModule } from './post/post.module';
 import { AuthModule } from './auth/auth.module';
 import { SubradditModule } from './subraddit/subraddit.module';
 import { CommentModule } from './comment/comment.module';
+import { VoteModule } from './vote/vote.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '../../api/.env',
+      envFilePath: '../../.env',
     }),
     AuthModule,
     PostModule,
     SubradditModule,
     CommentModule,
+    VoteModule,
   ],
   controllers: [AppController],
   providers: [
